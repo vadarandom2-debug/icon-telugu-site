@@ -1,5 +1,5 @@
 // Offline shell: network-first so new stories show at once, cached copy when offline.
-const CACHE = "icon-v3";
+const CACHE = "icon-v4";
 const SHELL = ["./", "index.html", "news.css", "shorts.css", "advanced.css", "demo-data.js", "news.js", "advanced.js", "shorts.js",
   "assets/logo-lockup-light.png", "assets/logo-lockup-dark.png", "assets/favicon.svg", "assets/icon-192.png"];
 self.addEventListener("install", (e) => e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL))));

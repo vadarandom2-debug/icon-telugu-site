@@ -35,3 +35,5 @@
 .sh-foot { flex-wrap: wrap; row-gap: 8px; }
 .sh-foot > span { flex-basis: 100%; }
 .sh-foot .listen, .sh-foot a, .sh-foot button { white-space: nowrap; }
+/* Story cards stay light in dark mode, so they keep the light-theme tokens. */
+.sh-in { --ink: #111827; --ink2: #5b6475; --line: #e7e7e1; --bg2: #f7f7f4; }
