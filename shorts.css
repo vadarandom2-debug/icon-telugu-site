@@ -1,0 +1,37 @@
+/* Mobile short-story feed: one story per screen, swipe up for the next. */
+#shorts { display: none; }
+@media (max-width: 719px) {
+  body.shorts-mode > :not(#shorts):not(script):not(.modal) { display: none !important; }
+  body.shorts-mode { overflow: hidden; background: #111; }
+  body.shorts-mode #shorts { display: flex; }
+}
+#shorts { position: fixed; inset: 0; flex-direction: column; background: #111; color: #fff; z-index: 100; }
+.sh-top { flex: none; display: flex; align-items: center; justify-content: space-between; padding: 10px 16px 6px; }
+.sh-top img { height: 38px; }
+.sh-full { font: 700 13px "Anek Telugu", sans-serif; color: #111; background: var(--gold); border: 0; border-radius: 999px; padding: 6px 12px; }
+.sh-chips { flex: none; display: flex; gap: 8px; overflow-x: auto; padding: 6px 16px 10px; scrollbar-width: none; }
+.sh-chips::-webkit-scrollbar { display: none; }
+.sh-chips button { flex: none; font: 700 14px "Anek Telugu", sans-serif; color: #cfd3da; background: #1d2026; border: 1px solid #2a2d33; border-radius: 999px; padding: 6px 14px; }
+.sh-chips button.on { color: #fff; background: var(--accent); border-color: var(--accent); }
+.sh-feed { flex: 1; overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; scrollbar-width: none; }
+.sh-feed::-webkit-scrollbar { display: none; }
+.sh-card { height: 100%; scroll-snap-align: start; scroll-snap-stop: always; display: flex; flex-direction: column; padding: 0 16px 14px; }
+.sh-in { flex: 1; display: flex; flex-direction: column; background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; }
+.sh-in .thumb { flex: none; aspect-ratio: auto; height: 38%; border-radius: 0; }
+.sh-body { flex: 1; display: flex; flex-direction: column; padding: 16px 18px; min-height: 0; }
+.sh-body h2 { font-size: 22px; line-height: 1.3; font-weight: 800; }
+.sh-body p { font-size: 16.5px; line-height: 1.65; color: #2d3340; margin: 10px 0 0; overflow: hidden; }
+.sh-foot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink2); border-top: 1px solid var(--line); }
+.sh-foot a { margin-left: auto; font-weight: 800; color: var(--accent); }
+.sh-foot button { font: 700 13px "Anek Telugu", sans-serif; background: var(--bg2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+.sh-count { position: absolute; right: 12px; top: 12px; z-index: 2; background: rgba(0,0,0,.55); color: #fff; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; }
+.sh-hint { text-align: center; font-size: 12.5px; color: #8a909b; padding-top: 8px; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+.sh-in .stars { margin-top: 8px; }
+.to-shorts { display: none; }
+@media (max-width: 719px) {
+  .to-shorts { display: block; position: fixed; right: 16px; bottom: 16px; z-index: 60; font: 800 14px "Anek Telugu", sans-serif; color: #fff; background: var(--accent); border: 0; border-radius: 999px; padding: 10px 16px; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+}
+.sh-foot { flex-wrap: wrap; row-gap: 8px; }
+.sh-foot > span { flex-basis: 100%; }
+.sh-foot .listen, .sh-foot a, .sh-foot button { white-space: nowrap; }
